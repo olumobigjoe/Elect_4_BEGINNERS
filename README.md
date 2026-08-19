@@ -93,6 +93,16 @@ folder is deployed alongside it.
 
 ## Notes / troubleshooting
 
+- **"Unable to create Page. The file `...` could not be found."** — this
+  means the platform's working directory isn't the repo root when it
+  launches `app.py`. `app.py` now resolves `modules/*.py` as absolute
+  paths anchored to its own file location (via `Path(__file__).parent`),
+  which fixes this regardless of CWD. If you still hit it after
+  updating, double-check that the `modules/` folder was actually pushed
+  to your GitHub repo (browse the repo on GitHub.com and confirm the 8
+  files are visible there) and that on Streamlit Community Cloud the
+  **Main file path** is set to `app.py` (not `modules/app.py` or
+  anything else).
 - **Always launch via `app.py`.** Running e.g.
   `streamlit run modules/app_gates.py` directly will still work as a
   standalone app, but you'll lose the combined navigation and the
