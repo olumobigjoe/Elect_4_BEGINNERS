@@ -53,50 +53,50 @@ MODULES_DIR = BASE_DIR / "modules"
 # ----------------------------------------------------------------------
 pages = [
     st.Page(
-        MODULES_DIR / "app_fundamentals.py",
+        "app_fundamentals.py",
         title="Electrical Fundamentals",
         icon="🔋",
         url_path="fundamentals",
         default=True,
     ),
     st.Page(
-        MODULES_DIR / "app_components.py",
+        "app_components.py",
         title="Electronic Components",
         icon="⚡",
         url_path="components",
     ),
     st.Page(
-        MODULES_DIR / "app_gates.py",
+        "app_gates.py",
         title="Logic Gates",
         icon="🔌",
         url_path="logic_gates",
     ),
     st.Page(
-        MODULES_DIR / "app_digital_electronics.py",
+        "app_digital_electronics.py",
         title="Digital Electronics",
         icon="💾",
         url_path="digital_electronics",
     ),
     st.Page(
-        MODULES_DIR / "app_circuit_analysis.py",
+        "app_circuit_analysis.py",
         title="Circuit Analysis",
         icon="🧮",
         url_path="circuit_analysis",
     ),
     st.Page(
-        MODULES_DIR / "app_rectifiers.py",
+        "app_rectifiers.py",
         title="Diodes & Rectifiers",
         icon="🔺",
         url_path="rectifiers",
     ),
     st.Page(
-        MODULES_DIR / "app_amplifiers.py",
+        "app_amplifiers.py",
         title="Transistors & Amplifiers",
         icon="🔀",
         url_path="amplifiers",
     ),
     st.Page(
-        MODULES_DIR / "app_measurements.py",
+        "app_measurements.py",
         title="Measurements & Instruments",
         icon="📏",
         url_path="measurements",
