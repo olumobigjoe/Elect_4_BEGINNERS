@@ -30,7 +30,21 @@ Do NOT run any of the files inside modules/ directly with `streamlit
 run` on their own if you want the combined experience — run app.py.
 """
 
+from pathlib import Path
+
 import streamlit as st
+
+# ----------------------------------------------------------------------
+# Resolve module paths relative to THIS file's location on disk (not the
+# process's current working directory). Some deployment platforms
+# (Streamlit Community Cloud among them) can launch the app with a CWD
+# that differs from the repo root, which makes plain relative strings
+# like "modules/app_fundamentals.py" fail with:
+#   "Unable to create Page. The file `...` could not be found."
+# Anchoring to __file__ makes this work the same locally and deployed.
+# ----------------------------------------------------------------------
+BASE_DIR = Path(__file__).parent
+MODULES_DIR = BASE_DIR / "modules"
 
 # ----------------------------------------------------------------------
 # Define every topic as a Page. `title` and `icon` control what shows up
@@ -39,50 +53,50 @@ import streamlit as st
 # ----------------------------------------------------------------------
 pages = [
     st.Page(
-        "modules/app_fundamentals.py",
+        MODULES_DIR / "app_fundamentals.py",
         title="Electrical Fundamentals",
         icon="🔋",
         url_path="fundamentals",
         default=True,
     ),
     st.Page(
-        "modules/app_components.py",
+        MODULES_DIR / "app_components.py",
         title="Electronic Components",
         icon="⚡",
         url_path="components",
     ),
     st.Page(
-        "modules/app_gates.py",
+        MODULES_DIR / "app_gates.py",
         title="Logic Gates",
         icon="🔌",
         url_path="logic_gates",
     ),
     st.Page(
-        "modules/app_digital_electronics.py",
+        MODULES_DIR / "app_digital_electronics.py",
         title="Digital Electronics",
         icon="💾",
         url_path="digital_electronics",
     ),
     st.Page(
-        "modules/app_circuit_analysis.py",
+        MODULES_DIR / "app_circuit_analysis.py",
         title="Circuit Analysis",
         icon="🧮",
         url_path="circuit_analysis",
     ),
     st.Page(
-        "modules/app_rectifiers.py",
+        MODULES_DIR / "app_rectifiers.py",
         title="Diodes & Rectifiers",
         icon="🔺",
         url_path="rectifiers",
     ),
     st.Page(
-        "modules/app_amplifiers.py",
+        MODULES_DIR / "app_amplifiers.py",
         title="Transistors & Amplifiers",
         icon="🔀",
         url_path="amplifiers",
     ),
     st.Page(
-        "modules/app_measurements.py",
+        MODULES_DIR / "app_measurements.py",
         title="Measurements & Instruments",
         icon="📏",
         url_path="measurements",
